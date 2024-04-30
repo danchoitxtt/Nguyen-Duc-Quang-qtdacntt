@@ -1,0 +1,437 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B5DBDC2D-A69C-4CE9-8502-AB47707C1930}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CoffeeManagement</RootNamespace>
+    <AssemblyName>CoffeeManagement</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BO\BillBo.cs" />
+    <Compile Include="BO\ItemBo.cs" />
+    <Compile Include="BO\List.cs" />
+    <Compile Include="BO\ShiftBo.cs" />
+    <Compile Include="DAO\ShiftDao.cs" />
+    <Compile Include="BO\TableBo.cs" />
+    <Compile Include="BO\UnitBo.cs" />
+    <Compile Include="BO\UserBo.cs" />
+    <Compile Include="DAO\BillDao.cs" />
+    <Compile Include="DAO\DataContext.cs" />
+    <Compile Include="DAO\ItemDao.cs" />
+    <Compile Include="DAO\TableDao.cs" />
+    <Compile Include="DAO\UnitDao.cs" />
+    <Compile Include="DAO\UserDao.cs" />
+    <Compile Include="DTOs\BasicSalary.cs" />
+    <Compile Include="DTOs\Bill.cs" />
+    <Compile Include="DTOs\Item.cs" />
+    <Compile Include="DTOs\Shift.cs" />
+    <Compile Include="DTOs\Table.cs" />
+    <Compile Include="DTOs\Unit.cs" />
+    <Compile Include="DTOs\User.cs" />
+    <Compile Include="DTOs\ViewModels\StatsByBills.cs" />
+    <Compile Include="DTOs\ViewModels\StatsByItems.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\AnimationHelper.cs" />
+    <Compile Include="Utilities\AppConstants.cs" />
+    <Compile Include="Utilities\AppEnum.cs" />
+    <Compile Include="Utilities\ExcelHelper.cs" />
+    <Compile Include="Utilities\JsonHelper.cs" />
+    <Compile Include="Utilities\MessageHelper.cs" />
+    <Compile Include="Utilities\StringHelper.cs" />
+    <Compile Include="Views\CustomControls\SearchBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\CustomControls\SearchBox.Designer.cs">
+      <DependentUpon>SearchBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CustomControls\WorkTrackingContainerControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\CustomControls\WorkTrackingContainerControl.designer.cs">
+      <DependentUpon>WorkTrackingContainerControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CustomControls\WorkTrackingTopControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\CustomControls\WorkTrackingTopControl.designer.cs">
+      <DependentUpon>WorkTrackingTopControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CustomControls\WorkTrackingBottomControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\CustomControls\WorkTrackingBottomControl.designer.cs">
+      <DependentUpon>WorkTrackingBottomControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DetailViews\IDetailView.cs" />
+    <Compile Include="Views\DetailViews\ItemManagerView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\DetailViews\ItemManagerView.Designer.cs">
+      <DependentUpon>ItemManagerView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DetailViews\OrderView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\DetailViews\OrderView.Designer.cs">
+      <DependentUpon>OrderView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DetailViews\SaleStatistics.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\DetailViews\SaleStatistics.Designer.cs">
+      <DependentUpon>SaleStatistics.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DetailViews\UserManager.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\DetailViews\UserManager.Designer.cs">
+      <DependentUpon>UserManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DetailViews\WorkTrackingAdmin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\DetailViews\WorkTrackingAdmin.Designer.cs">
+      <DependentUpon>WorkTrackingAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DetailViews\WorkTrackingNonAdmin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\DetailViews\WorkTrackingNonAdmin.Designer.cs">
+      <DependentUpon>WorkTrackingNonAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MasterView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\MasterView.Designer.cs">
+      <DependentUpon>MasterView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Popups\JoinTable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Popups\JoinTable.designer.cs">
+      <DependentUpon>JoinTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Popups\PaymentConfirm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Popups\PaymentConfirm.Designer.cs">
+      <DependentUpon>PaymentConfirm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Popups\ProcessItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Popups\ProcessItem.Designer.cs">
+      <DependentUpon>ProcessItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Popups\AddUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Popups\AddUser.Designer.cs">
+      <DependentUpon>AddUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Popups\EndShiftStatistics.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Popups\EndShiftStatistics.Designer.cs">
+      <DependentUpon>EndShiftStatistics.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Popups\ImportItemsFromFile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Popups\ImportItemsFromFile.Designer.cs">
+      <DependentUpon>ImportItemsFromFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Popups\Indicator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Popups\Indicator.Designer.cs">
+      <DependentUpon>Indicator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Splash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Splash.Designer.cs">
+      <DependentUpon>Splash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CustomControls\SearchBox.resx">
+      <DependentUpon>SearchBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CustomControls\WorkTrackingContainerControl.resx">
+      <DependentUpon>WorkTrackingContainerControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CustomControls\WorkTrackingTopControl.resx">
+      <DependentUpon>WorkTrackingTopControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CustomControls\WorkTrackingBottomControl.resx">
+      <DependentUpon>WorkTrackingBottomControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\DetailViews\ItemManagerView.resx">
+      <DependentUpon>ItemManagerView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\DetailViews\OrderView.resx">
+      <DependentUpon>OrderView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\DetailViews\SaleStatistics.resx">
+      <DependentUpon>SaleStatistics.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\DetailViews\UserManager.resx">
+      <DependentUpon>UserManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\DetailViews\WorkTrackingAdmin.resx">
+      <DependentUpon>WorkTrackingAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\DetailViews\WorkTrackingNonAdmin.resx">
+      <DependentUpon>WorkTrackingNonAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MasterView.resx">
+      <DependentUpon>MasterView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Popups\JoinTable.resx">
+      <DependentUpon>JoinTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Popups\PaymentConfirm.resx">
+      <DependentUpon>PaymentConfirm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Popups\ProcessItem.resx">
+      <DependentUpon>ProcessItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Popups\AddUser.resx">
+      <DependentUpon>AddUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Popups\EndShiftStatistics.resx">
+      <DependentUpon>EndShiftStatistics.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Popups\ImportItemsFromFile.resx">
+      <DependentUpon>ImportItemsFromFile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Popups\Indicator.resx">
+      <DependentUpon>Indicator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Splash.resx">
+      <DependentUpon>Splash.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cropped-1366-768-374296.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sale.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\work_tracking.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\statistics.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menu_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sale_statistics.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\material_statistics.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\material_state.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_material.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\valid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\invalid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\end_shift.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\log_out.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clear_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pay.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clear_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\indicator.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\import.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>7</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\folder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\import_records.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\view_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\splash.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
